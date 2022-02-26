@@ -1,15 +1,16 @@
 <h1><%= category.name %></h1>
 
 <% if (!category.projects.length) { %>
-    <h2>No projects with this category!</h2>
-<% } %>
-
-
-<% category.projects.forEach(project => { %>
-    <div class="card">
-      <div class="card-body">
-          <div class="card-title"><%= project.name %></div>
-      </div>
+<h2>No projects with this category!</h2>
+<% } %> <% category.projects.forEach(project => { %>
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+            <h2>
+                <a href="/projects/<%= project.id%>"> <%= project.name %> </a>
+            </h2>
+        </div>
     </div>
-    <hr>
-  <% }) %>
+</div>
+<hr />
+<% }) %>

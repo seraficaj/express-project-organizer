@@ -12,12 +12,16 @@
 
 <p><%= project.description %></p>
 
-<h2>Project Categories</h2>
-<ul>
+<h2>Project Category</h2>
   <% project.categories.forEach(element => { %>
-    <li><%= element.name %> </li>
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title"><a href="/categories/<%= element.id %>"> 
+          <%= element.name %> </h3>
+        </a>
+      </div>
+    </div>
   <% }) %>
-</ul>
 
 <hr />
 
