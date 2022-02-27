@@ -44,4 +44,18 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// GET edit form
+router.get("/edit/:id", async (req, res) => {
+  try {
+      const foundProject = await db.project.findOne({
+          where: { id: req.params.id },
+          include: [db.category]
+      });
+      console.log(`foundProject`, foundProject.categories);
+      res.render("projects/edit", {project: foundProject});
+  } catch (error) {
+      res.status(400).render("main/404");
+  }
+});
+
 module.exports = router;
