@@ -3,17 +3,17 @@ let db = require("../models");
 let router = express.Router();
 
 // POST /projects - create a new project
-router.post("/", async (req, res) => {
+router.post("/", async(req, res) => {
     try {
-        const newProject = await db.project.findOrCreate({
+        const [newProject, newProjectCreated] = await db.project.findOrCreate({
             where: {
                 name: req.body.name,
                 githubLink: req.body.githubLink,
                 deployLink: req.body.deployedLink,
                 description: req.body.description,
-            },
+            }
         });
-        const category = await db.category.findOrCreate({
+        const [category, categoryCreated] = await db.category.findOrCreate({
             where: {
                 name: req.body.category,
             },
