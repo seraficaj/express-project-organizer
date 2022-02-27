@@ -79,4 +79,16 @@ router.get("/edit/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req,res ) => {
+  try {
+    const foundProject = await db.project.findOne({
+      where: { id: req.params.id },
+    });
+    await foundProject.destroy();
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+  }
+})
+
 module.exports = router;
