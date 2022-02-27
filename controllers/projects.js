@@ -44,6 +44,27 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// PUT route for editing
+router.put("/:id", async (req, res) => {
+  try {
+      const foundProject = await db.project.findOne({
+          where: {
+            id: req.params.id
+          }
+      });
+      foundProject.update({
+        name: req.body.name,
+        githubLink: req.body.githubLink,
+        deployLink: req.body.deployedLink,
+        description: req.body.description,
+      });
+      await foundProject.save();
+      res.redirect(`/projects/${req.params.id}`);
+  } catch (err) {
+      console.log("err", err);
+  }
+});
+
 // GET edit form
 router.get("/edit/:id", async (req, res) => {
   try {
