@@ -155,6 +155,9 @@ When finished with the above, style the application appropriately with CSS. Try 
     - projects
     - categories
     - projectCategories
+- Associate your models to users
+- Protect routes from unauthorized folks!
+- Style this app!
 
 ## Deliverables
 
