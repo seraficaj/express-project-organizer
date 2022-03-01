@@ -15,7 +15,7 @@
 </a>
 
 <p><%= project.description %></p>
-<p>By: <%= project.userId  %> </p>
+<p>By: <%= projectOwner.email  %> </p>
 <h2>Project Category</h2>
   <% project.categories.forEach(element => { %>
     <div class="card">
@@ -31,6 +31,8 @@
 
 <a href="/">&larr; Back Home</a>
 
+<% if(user.id === projectOwner.id) {%> 
 <form action="/projects/<%=project.id%>?_method=DELETE" method="POST">
   <input type="submit" class="btn btn-danger" value="Delete Project" />
 </form>
+<% } %> 

@@ -72,4 +72,14 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+router.get('/:id', async (req, res) => {
+    const foundUser = await db.user.findOne({
+        where: {
+            id: req.params.id
+        }
+    });
+    const projects = await foundUser.getProjects();
+    res.render("users/profile", {foundUser, projects})
+})
+
 module.exports = router;
