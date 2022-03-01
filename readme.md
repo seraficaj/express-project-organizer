@@ -142,6 +142,20 @@ When finished with the above, style the application appropriately with CSS. Try 
     -   Example: Inputting `node, pizza, music` would add all three tags to a project at once.
     -   You'll notice that this will require multiple queries, dependent on how many tags you're adding. Look into using the [async module](https://wdi_sea.gitbooks.io/notes/content/02-js-jquery/js-async/readme.html) in order to run multiple asynchronous functions and send a response at the correct time.
 
+## Adding Auth
+- First, complete the MVP of this project.
+- Now, let's recreate our database structure to create users.
+
+### setting up your database to include users
+- Reset your database structure with: `sequelize init`
+    - adjust `config.json` to your operating system
+- Implement auth!
+    - make your user models, controllers, and views
+- Remake your models!
+    - projects
+    - categories
+    - projectCategories
+
 ## Deliverables
 
 Here are some example screenshots. Your finished deliverable will differ and include the desired functionality.
