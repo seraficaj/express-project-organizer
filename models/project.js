@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.project.belongsTo(models.user)
       models.project.belongsToMany(models.category, {
         through: 'categoriesProjects',
         onDelete: 'CASCADE'
@@ -29,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
   }, {
     sequelize,
