@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/projects", require("./controllers/projects"));
 app.use("/categories", require("./controllers/categories"));
+app.use("/users", require("./controllers/users"));
 
 
 app.get("*", (req, res) => {
